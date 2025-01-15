@@ -20,17 +20,17 @@ const SideNavigation = () => {
         <span>Add Note</span>
       </Link>
 
-      <Link to="calendar" className={`flex justify-start items-center gap-2 transition-all duration-300 mb-6 ${pathname === "/calendar" ? "py-2 px-4 bg-gray-100 text-primary" : ""}`}>
+      <Link to="calendar" className={`flex justify-start items-center gap-2 transition-all duration-300 mb-6 ${pathname === "/calendar" ? "text-primary" : ""}`}>
         <CalendarDots size={22} weight="regular" />
         <span>Calendar</span>
       </Link>
 
-      <Link to="archive" className={`flex justify-start items-center gap-2 transition-all duration-300 mb-6 ${pathname === "/archive" ? "py-2 px-4 bg-gray-100 text-primary" : ""}`}>
+      <Link to="archive" className={`flex justify-start items-center gap-2 transition-all duration-300 mb-6 ${pathname === "/archive" ? "text-primary" : ""}`}>
         <BoxArrowDown size={22} weight="regular" />
         <span>Archive</span>
       </Link>
 
-      <Link to="trash" className={`flex justify-start items-center gap-2 transition-all duration-300 mb-6 ${pathname === "/trash" ? "py-2 px-4 bg-gray-100 text-primary" : ""}`}>
+      <Link to="trash" className={`flex justify-start items-center gap-2 transition-all duration-300 mb-6 ${pathname === "/trash" ? "text-primary" : ""}`}>
         <Trash size={22} weight="regular" />
         <span>Trash</span>
       </Link>
