@@ -47,10 +47,10 @@ const Notes = () => {
                 handleClose={() => setClearNoteInfo({...clearNoteInfo, show: false})}
             />
 
-            <div className={`w-full flex ${sortedNotes.length ? "justify-between" : "justify-end"}  items-start gap-4 mb-6`}>
+            <div className={`w-full flex ${sortedNotes.length ? "justify-between" : "justify-end"} items-start gap-4 text-xs md:text-sm flex-wrap mb-6`}>
                 {
                     sortedNotes.length ? (
-                        <div className="flex justify-start items-start gap-2 flex-col">
+                        <div className="flex justify-start items-start gap-2 flex-wrap flex-col">
                             <div className="flex justify-start items-center gap-1">
                                 <span>Filter By:</span>
                                 <Dropdown 

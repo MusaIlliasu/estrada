@@ -5,7 +5,7 @@ import { Plus } from "@phosphor-icons/react";
 import { toast } from "react-toastify";
 
 const Folders = () => {
-    const [filter, setFilter] = useState("All");
+    const [filter, setFilter] = useState("Today");
     const folders = [
         {
             title: "Product Review",
@@ -35,13 +35,13 @@ const Folders = () => {
 
     return (
         <>
-            <div className="w-full flex justify-between items-center gap-4 mb-6">
+            <div className="w-full flex justify-between items-center gap-4 text-xs md:text-sm flex-wrap mb-6">
                 <div className="flex justify-start items-center gap-1">
                     <span>Filter:</span>
                     <Dropdown 
                         selected={filter}
                         handleChange={(val) => setFilter(val as string)}
-                        options={["All", "Today", "This week", "This month"]}
+                        options={["Today", "This week", "This month"]}
                         className="w-max whitespace-nowrap"
                     />
                 </div>
