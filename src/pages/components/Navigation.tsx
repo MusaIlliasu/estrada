@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SearchComponent from "./SearchComponent";
+import SearchComponent from "./search/SearchComponent";
 
 import logo from "../../assets/logo/logo.png";
 import profileImage from "../../assets/images/profile.png";

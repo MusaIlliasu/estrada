@@ -3,9 +3,9 @@ import { sort } from 'fast-sort';
 import { Note } from '../types/types';
 
 interface Props {
-    filterOption: string;
-    sortOption: string;
-    initialNotes: Note[];
+  filterOption: string;
+  sortOption: string;
+  initialNotes: Note[];
 }
 
 const useNotes = ({filterOption, sortOption, initialNotes}: Props) => {
@@ -56,9 +56,9 @@ const useNotes = ({filterOption, sortOption, initialNotes}: Props) => {
     if (sortOption === 'title') {
       sorted = sort(sorted).asc(note => note.title.toLowerCase());
     } else if (sortOption === 'creation date') {
-      sorted = sort(sorted).asc(note => note.createdAt);
+      sorted = sort(sorted).desc(note => note.createdAt);
     } else if (sortOption === 'updated date') {
-      sorted = sort(sorted).asc(note => note.updatedAt);
+      sorted = sort(sorted).desc(note => note.updatedAt);
     }
 
     return sorted;
