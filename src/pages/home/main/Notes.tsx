@@ -3,8 +3,11 @@ import Dropdown from "../../components/Dropdown";
 import NoteCard from "./NoteCard";
 import { Plus } from "@phosphor-icons/react";
 import NoteForm from "../../components/NoteForm";
-import { useAppSelector } from "../../../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 import useNotes from "../../../hooks/useNotes";
+import { toast } from "react-toastify";
+import { clearAllNotes } from "../../../store/features/NotesReducer";
+import Modal from "../../components/Modal";
 
 
 const Notes = () => {
@@ -12,8 +15,20 @@ const Notes = () => {
     const [showNoteForm, setShowNoteForm] = useState(false);
     const [filterOption, setFilterOption] = useState("today");
     const [sortOption, setSortOption] = useState("title");
-
     const { sortedNotes } = useNotes({filterOption, sortOption, initialNotes: notes});
+    const [clearNoteInfo, setClearNoteInfo] = useState({show: false, loading: false});
+    const dispatch = useAppDispatch();
+
+    const handleClearNotes = () => {
+        if(clearNoteInfo.loading){ return; }
+
+        setClearNoteInfo({...clearNoteInfo, loading: true});
+        toast.success("Notes deleted");
+        return setTimeout(() => {
+            dispatch(clearAllNotes());
+            return setClearNoteInfo({show: false, loading: false});
+        }, 2000);
+    }
 
     return (
         <>
@@ -21,6 +36,15 @@ const Notes = () => {
             <NoteForm 
                 show={showNoteForm}
                 handleClose={() => setShowNoteForm(false)}
+            />
+
+            {/* Clear Notes Modal */}
+            <Modal 
+                show={clearNoteInfo.show}
+                message="Are you sure you want to delete all notes?"
+                loading={clearNoteInfo.loading}
+                handleProceed={handleClearNotes}
+                handleClose={() => setClearNoteInfo({...clearNoteInfo, show: false})}
             />
 
             <div className={`w-full flex ${sortedNotes.length ? "justify-between" : "justify-end"}  items-start gap-4 mb-6`}>
@@ -51,10 +75,20 @@ const Notes = () => {
                     ) : null
                 }
 
-                <button onClick={() => setShowNoteForm(true)} className="flex justify-start items-center gap-2 rounded transition-all bg-primary text-white py-2 px-4">
-                    <Plus size={18} weight="bold" />
-                    <span>Add Note</span>
-                </button>
+                <div className="flex justify-start items-center gap-4 flex-wrap">
+                    <button onClick={() => setShowNoteForm(true)} className="flex justify-start items-center gap-2 rounded transition-all bg-primary text-white py-2 px-4">
+                        <Plus size={18} weight="bold" />
+                        <span>Add Note</span>
+                    </button>
+
+                    {
+                        notes.length ? (
+                            <button onClick={() => setClearNoteInfo({...clearNoteInfo, show: true})} className="flex justify-start items-center gap-2 rounded transition-all bg-secondary text-white py-2 px-4">
+                                Clear Notes
+                            </button>
+                        ) : null
+                    }
+                </div>
             </div>
 
             {
@@ -73,7 +107,6 @@ const Notes = () => {
                     <p className="text-center text-secondary mt-8">No record found</p>
                 )
             }
-
         </>
     )
 }

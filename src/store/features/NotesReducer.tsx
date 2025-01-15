@@ -37,10 +37,14 @@ const noteSlice = createSlice({
             const updatedNotes = state.notes.filter(note => note.id !== action.payload.id);
             localStorage.setItem("notes", JSON.stringify(updatedNotes));
             state.notes = updatedNotes;
+        },
+        clearAllNotes: (state) => {
+            localStorage.removeItem("notes");
+            state.notes = [];
         }
     }
 });
 
-export const { addNote, updateNote, deleteNote } = noteSlice.actions;
+export const { addNote, updateNote, deleteNote, clearAllNotes } = noteSlice.actions;
 
 export default noteSlice.reducer;
