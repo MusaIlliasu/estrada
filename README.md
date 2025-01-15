@@ -1,50 +1,40 @@
-# React + TypeScript + Vite
+# Note-Keeping App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## [Live Demo](https://estrada-five.vercel.app/)
 
-Currently, two official plugins are available:
+## Overview
+The Note-Keeping App is a simple and efficient tool for managing and organizing your notes. It offers a clean, intuitive interface that allows users to easily create, edit, and keep track of their notes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **[React.js](https://react.dev)**: A popular JavaScript library for building user interfaces.
+- **[Tailwind CSS](https://tailwindcss.com)**: A utility-first CSS framework for rapid UI development.
+- **[Vite](https://vitejs.dev)**: A fast and optimized build tool and development server.
 
-## Expanding the ESLint configuration
+## Prerequisites
+- **[Node.js](https://nodejs.org)** (version 18.0.0 or higher)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+### 1. Clone the repository
+```sh
+git clone https://github.com/MusaIlliasu/estrada.git
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+cd estrada
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### 2. Install dependencies
+```sh
+npm install
 ```
+
+### 3. Start the development server
+```sh
+npm run dev
+```
+- Once the server is running, open your browser and visit the URL displayed in the terminal to view the app.
+
+### 4. Future Improvements
+- Implement structured folders for better organization of notes.
+- Introduce a Trash, Archive, and Calendar feature for enhanced note management.
+- Optimize the UI to improve usability and visual flow.
+- Add pagination for better navigation as the number of notes grows.

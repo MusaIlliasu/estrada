@@ -43,7 +43,7 @@ const NoteCard = (note : Note) => {
                 handleClose={() => setDeleteInfo({...deleteInfo, id: 0, show: false})}
             />
 
-            <div className="w-full min-h-[150px] rounded-2xl bg-[#EBEBEB]">
+            <div className="w-full min-h-[150px] rounded-2xl bg-[#EBEBEB] transition-all duration-300 hover:scale-110">
                 <div className="flex justify-between items-start gap-4 flex-wrap mb-2 p-5 border-b border-b-gray-300">
                     <div>
                         <h2 className="font-semibold text-lg mb-1">{note.title}</h2>

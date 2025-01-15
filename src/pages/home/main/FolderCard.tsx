@@ -13,7 +13,7 @@ const FolderCard = ({title, date, bgColor, iconColor}: Props) => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div style={{backgroundColor: bgColor}} className="w-full min-h-[150px] rounded-2xl bg-gray-300 p-5">
+    <div style={{backgroundColor: bgColor}} className="w-full min-h-[150px] rounded-2xl bg-gray-300 transition-all duration-300 hover:scale-110 p-5">
         <div className="flex justify-between items-start gap-4 flex-wrap mb-10">
             <Folder size={40} weight="fill" color={iconColor} />
 
