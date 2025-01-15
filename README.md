@@ -33,7 +33,11 @@ npm run dev
 ```
 - Once the server is running, open your browser and visit the URL displayed in the terminal to view the app.
 
-### 4. Future Improvements
+### 4. Features:
+All core features are functional, including adding, updating, deleting, clearing, filtering, sorting, and searching notes.
+Please note, folder functionality was not implemented as the instructions focused specifically on notes, and there were no detailed specifications provided for how folders should work within the app.
+
+### 5. Future Improvements
 - Implement structured folders for better organization of notes.
 - Introduce a Trash, Archive, and Calendar feature for enhanced note management.
 - Optimize the UI to improve usability and visual flow.
