@@ -35,8 +35,8 @@ const Mobile = ({show, handleClose}: Props) => {
                 handleClose={() => setShowNoteForm(false)}
             />
 
-            <div onClick={handleParentClose} className={`mobile w-full h-screen bg-[#33333399] backdrop-blur-sm ${show ? "fixed top-0 left-0" : "hidden"} cursor-pointer z-50`}>
-                <div className="w-[200px] h-screen overflow-y-auto bg-white cursor-default absolute top-0 right-0 p-4">
+            <div onClick={handleParentClose} className={`mobile w-full h-screen bg-[#33333399] backdrop-blur-sm fixed top-0 left-0 ${show ? "translate-x-0" : "-translate-x-[120vw]"} cursor-pointer transition-all duration-700 z-50`}>
+                <div className={`w-[200px] h-screen overflow-y-auto bg-white cursor-default absolute top-0 right-0 p-4 delay-500 transition-all duration-700 ${show ? "opacity-100" : "opacity-0"} `}>
                     <Link onClick={handleClose} to="/" className="block w-full mb-10">
                         <img src={logo} alt="Logo" className="w-full h-full object-contain" loading="lazy" />
                     </Link>

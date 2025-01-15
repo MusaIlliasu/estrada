@@ -76,14 +76,14 @@ const Notes = () => {
                 }
 
                 <div className="flex justify-start items-center gap-4 flex-wrap">
-                    <button onClick={() => setShowNoteForm(true)} className="flex justify-start items-center gap-2 rounded transition-all bg-primary text-white py-2 px-4">
+                    <button onClick={() => setShowNoteForm(true)} className="flex justify-start items-center gap-2 rounded transition-all duration-300 bg-primary text-white hover:-translate-y-1 py-2 px-4">
                         <Plus size={18} weight="bold" />
                         <span>Add Note</span>
                     </button>
 
                     {
                         notes.length ? (
-                            <button onClick={() => setClearNoteInfo({...clearNoteInfo, show: true})} className="flex justify-start items-center gap-2 rounded transition-all bg-secondary text-white py-2 px-4">
+                            <button onClick={() => setClearNoteInfo({...clearNoteInfo, show: true})} className="flex justify-start items-center gap-2 rounded transition-all duration-300 bg-secondary text-white hover:-translate-y-1 py-2 px-4">
                                 Clear Notes
                             </button>
                         ) : null

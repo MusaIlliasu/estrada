@@ -2,6 +2,7 @@ import { useState } from "react";
 import Dropdown from "../../components/Dropdown";
 import FolderCard from "./FolderCard";
 import { Plus } from "@phosphor-icons/react";
+import { toast } from "react-toastify";
 
 const Folders = () => {
     const [filter, setFilter] = useState("All");
@@ -45,7 +46,7 @@ const Folders = () => {
                     />
                 </div>
 
-                <button className="flex justify-start items-center gap-2 rounded transition-all bg-primary text-white py-2 px-4">
+                <button onClick={() => toast.info("Coming soon...")} className="flex justify-start items-center gap-2 rounded transition-all duration-300 bg-primary text-white hover:-translate-y-1 py-2 px-4">
                     <Plus size={18} weight="bold" className="" />
                     <span>Add Folder</span>
                 </button>

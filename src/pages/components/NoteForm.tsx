@@ -90,8 +90,8 @@ const NoteForm = ({ show, note, handleClose }: Props) => {
     }
 
     return (
-        <div onClick={handleParentClose} className={`parent w-full h-screen bg-[#33333399] backdrop-blur-sm flex justify-start md:justify-center items-center ${show ? "fixed top-0 left-0" : "hidden"} cursor-pointer p-6 z-50`}>
-            <form onSubmit={handleSubmit(handleFormSubmit)} className="w-full md:max-w-[450px] min-h-[300px] bg-white rounded-lg cursor-default p-4 md:p-6">
+        <div onClick={handleParentClose} className={`parent w-full h-screen bg-[#33333399] backdrop-blur-sm flex justify-start md:justify-center items-center fixed top-0 left-0 ${show ? "translate-y-0" : "-translate-y-[120vh]"} cursor- transition-all duration-700 p-6 z-50`}>
+            <form onSubmit={handleSubmit(handleFormSubmit)} className={`w-full md:max-w-[450px] min-h-[300px] bg-white rounded-lg cursor-default p-4 md:p-6 delay-500 transition-all duration-700 ${show ? "opacity-100" : "opacity-0"} `}>
                 <div className="flex justify-between items-start gap-4 mb-6">
                     <h2 className="font-semibold text-lg">New Note</h2>
                     <X size={24} weight="regular" onClick={handleClose} className="cursor-pointer hover:text-secondary transition-colors" />
