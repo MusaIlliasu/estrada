@@ -23,29 +23,33 @@ const Notes = () => {
                 handleClose={() => setShowNoteForm(false)}
             />
 
-            <div className="w-full flex justify-between items-start gap-4 mb-6">
-                <div className="flex justify-start items-start gap-2 flex-col">
-                    <div className="flex justify-start items-center gap-1">
-                        <span>Filter By:</span>
-                        <Dropdown 
-                            selected={filterOption}
-                            handleChange={(val) => setFilterOption(val as string)}
-                            options={["today", "this week", "this month"]}
-                            className="w-max whitespace-nowrap"
-                        />
-                    </div>
+            <div className={`w-full flex ${sortedNotes.length ? "justify-between" : "justify-end"}  items-start gap-4 mb-6`}>
+                {
+                    sortedNotes.length ? (
+                        <div className="flex justify-start items-start gap-2 flex-col">
+                            <div className="flex justify-start items-center gap-1">
+                                <span>Filter By:</span>
+                                <Dropdown 
+                                    selected={filterOption}
+                                    handleChange={(val) => setFilterOption(val as string)}
+                                    options={["today", "this week", "this month"]}
+                                    className="w-max whitespace-nowrap"
+                                />
+                            </div>
 
-                    <div className="flex justify-start items-center gap-1">
-                        <span>Sort By:</span>
-                        <Dropdown
+                            <div className="flex justify-start items-center gap-1">
+                                <span>Sort By:</span>
+                                <Dropdown
 
-                            selected={sortOption}
-                            handleChange={(val) => setSortOption(val as string)}
-                            options={["title", "creation date", "updated date"]}
-                            className="w-max whitespace-nowrap"
-                        />
-                    </div>
-                </div>
+                                    selected={sortOption}
+                                    handleChange={(val) => setSortOption(val as string)}
+                                    options={["title", "creation date", "updated date"]}
+                                    className="w-max whitespace-nowrap"
+                                />
+                            </div>
+                        </div>
+                    ) : null
+                }
 
                 <button onClick={() => setShowNoteForm(true)} className="flex justify-start items-center gap-2 rounded transition-all bg-primary text-white py-2 px-4">
                     <Plus size={18} weight="bold" />
