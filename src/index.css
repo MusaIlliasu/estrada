@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+:root {
+  --primary-color: #b14882;
+  --secondary-color: #ea3336;
+}
+
+body {
+  width: 100%;
+  max-width: 2000px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #FAFAFA;
+}
+
+::-webkit-scrollbar {width: 0.2rem;}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    transition: all 0.4s ease-in-out;
+}
+
+::-webkit-scrollbar-track {background-color: var(--primary-color);}
+
