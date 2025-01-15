@@ -1,12 +1,21 @@
 import { BoxArrowDown, CalendarDots, Plus, Trash } from "@phosphor-icons/react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import NoteForm from "./NoteForm";
 
 const SideNavigation = () => {
   const { pathname } = useLocation();
+  const [showNoteForm, setShowNoteForm] = useState(false);
 
   return (
     <>
-      <Link to="#" className="flex justify-start items-center gap-2 mb-10">
+      {/* Add Note Form */}
+      <NoteForm
+          show={showNoteForm}
+          handleClose={() => setShowNoteForm(false)}
+      />
+
+      <Link onClick={() => setShowNoteForm(true)} to="#" className="flex justify-start items-center gap-2 mb-8">
         <Plus size={22} weight="bold" className="bg-gray-200 rounded-full p-1" />
         <span>Add Note</span>
       </Link>
