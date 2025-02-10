@@ -47,7 +47,7 @@ const Notes = () => {
                 handleClose={() => setClearNoteInfo({...clearNoteInfo, show: false})}
             />
 
-            <div className="w-full flex justify-between items-start gap-4 text-xs md:text-sm flex-wrap mb-6">
+            <div className={`w-full flex ${(notes.length || sortedNotes.length) ? "justify-between" : "justify-end"}  items-start gap-4 text-xs md:text-sm flex-wrap mb-6`}>
                 {
                     (notes.length || sortedNotes.length) ? (
                         <div className="flex justify-start items-start gap-2 flex-wrap flex-col">
@@ -64,7 +64,6 @@ const Notes = () => {
                             <div className="flex justify-start items-center gap-1">
                                 <span>Sort By:</span>
                                 <Dropdown
-
                                     selected={sortOption}
                                     handleChange={(val) => setSortOption(val as string)}
                                     options={["any", "title", "creation date", "updated date"]}
