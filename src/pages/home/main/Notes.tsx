@@ -13,8 +13,8 @@ import Modal from "../../components/Modal";
 const Notes = () => {
     const { notes } = useAppSelector(state => state.notes);
     const [showNoteForm, setShowNoteForm] = useState(false);
-    const [filterOption, setFilterOption] = useState("today");
-    const [sortOption, setSortOption] = useState("title");
+    const [filterOption, setFilterOption] = useState("any");
+    const [sortOption, setSortOption] = useState("any");
     const { sortedNotes } = useNotes({filterOption, sortOption, initialNotes: notes});
     const [clearNoteInfo, setClearNoteInfo] = useState({show: false, loading: false});
     const dispatch = useAppDispatch();
@@ -47,16 +47,16 @@ const Notes = () => {
                 handleClose={() => setClearNoteInfo({...clearNoteInfo, show: false})}
             />
 
-            <div className={`w-full flex ${sortedNotes.length ? "justify-between" : "justify-end"} items-start gap-4 text-xs md:text-sm flex-wrap mb-6`}>
+            <div className="w-full flex justify-between items-start gap-4 text-xs md:text-sm flex-wrap mb-6">
                 {
-                    sortedNotes.length ? (
+                    (notes.length || sortedNotes.length) ? (
                         <div className="flex justify-start items-start gap-2 flex-wrap flex-col">
                             <div className="flex justify-start items-center gap-1">
                                 <span>Filter By:</span>
                                 <Dropdown 
                                     selected={filterOption}
                                     handleChange={(val) => setFilterOption(val as string)}
-                                    options={["today", "this week", "this month"]}
+                                    options={["any", "today", "this week", "this month"]}
                                     className="w-max whitespace-nowrap"
                                 />
                             </div>
@@ -67,7 +67,7 @@ const Notes = () => {
 
                                     selected={sortOption}
                                     handleChange={(val) => setSortOption(val as string)}
-                                    options={["title", "creation date", "updated date"]}
+                                    options={["any", "title", "creation date", "updated date"]}
                                     className="w-max whitespace-nowrap"
                                 />
                             </div>
